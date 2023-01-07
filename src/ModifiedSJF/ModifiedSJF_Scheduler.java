@@ -120,6 +120,8 @@ public class ModifiedSJF_Scheduler {
     private static void printCloudletList(List<Cloudlet> list) {
         int size = list.size();
         Cloudlet cloudlet;
+        double totalWaitingTime = 0;
+        double totalExecutionTime = 0;
 
         String indent = "    ";
         Log.printLine();
@@ -136,6 +138,8 @@ public class ModifiedSJF_Scheduler {
         dft.setMinimumIntegerDigits(2);
         for (int i = 0; i < size; i++) {
             cloudlet = list.get(i);
+            totalWaitingTime += cloudlet.getWaitingTime();
+            totalExecutionTime += cloudlet.getActualCPUTime();
             Log.print(indent + dft.format(cloudlet.getCloudletId()) + indent + indent);
 
             if (cloudlet.getCloudletStatus() == Cloudlet.SUCCESS) {
@@ -149,5 +153,8 @@ public class ModifiedSJF_Scheduler {
                         indent + indent + indent + dft.format(cloudlet.getFinishTime()));
             }
         }
+        Log.printLine("Total waiting time " + totalWaitingTime);
+        Log.printLine("Total execution time " + totalExecutionTime);
+
     }
 }
