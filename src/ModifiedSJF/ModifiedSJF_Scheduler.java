@@ -1,17 +1,16 @@
 package ModifiedSJF;
 
 
-import ModifiedSJF.ModifiedSJFDatacenterBroker;
 import SchedulerBase.SchedulerBase;
-import org.cloudbus.cloudsim.*;
+import org.cloudbus.cloudsim.Datacenter;
+import org.cloudbus.cloudsim.Cloudlet;
 import org.cloudbus.cloudsim.core.CloudSim;
+import org.cloudbus.cloudsim.Log;
+
 import utils.Constants;
 import utils.DatacenterCreator;
 
-import java.text.DecimalFormat;
-import java.util.Arrays;
 import java.util.Calendar;
-import java.util.LinkedList;
 import java.util.List;
 
 public class ModifiedSJF_Scheduler extends SchedulerBase {

@@ -2,13 +2,16 @@ package SJF;
 
 
 import SchedulerBase.SchedulerBase;
-import org.cloudbus.cloudsim.*;
+import org.cloudbus.cloudsim.Datacenter;
+import org.cloudbus.cloudsim.Cloudlet;
 import org.cloudbus.cloudsim.core.CloudSim;
+import org.cloudbus.cloudsim.Log;
+
 import utils.Constants;
 import utils.DatacenterCreator;
 
-import java.text.DecimalFormat;
-import java.util.*;
+import java.util.Calendar;
+import java.util.List;
 
 public class SJF_Scheduler extends SchedulerBase {
     public static void main(String[] args) {
