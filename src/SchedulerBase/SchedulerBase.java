@@ -86,32 +86,36 @@ public class SchedulerBase {
                 indent + indent+"Start Time" +
                 indent + indent+"Finish Time" +
                 indent + indent+"Waiting Time" +
-                indent + indent+"Processing cost" +
-                indent + indent+"Cost per sec");
+                indent + indent+"Cost of running");
 
         DecimalFormat dft = new DecimalFormat("###.##");
         dft.setMinimumIntegerDigits(2);
+
+        double totalCost = 0;
         for (int i = 0; i < size; i++) {
             cloudlet = list.get(i);
             totalWaitingTime += cloudlet.getWaitingTime();
             totalExecutionTime += cloudlet.getActualCPUTime();
-            Log.print(indent + dft.format(cloudlet.getCloudletId()) + indent + indent);
+            Log.format("%11s", dft.format(cloudlet.getCloudletId()));
+
 
             if (cloudlet.getCloudletStatus() == Cloudlet.SUCCESS) {
-                Log.print("SUCCESS");
+                Log.format("%10s", "SUCCESS");
                 double cost = cloudlet.getCostPerSec() * cloudlet.getActualCPUTime();
-                double cost2 = cloudlet.getProcessingCost();
-                Log.printLine(indent + indent + dft.format(cloudlet.getResourceId()) +
-                        indent + indent + indent + dft.format(cloudlet.getVmId()) +
-                        indent + indent + dft.format(cloudlet.getCloudletLength()) +
-                        indent + indent + dft.format(cloudlet.getActualCPUTime()) +
-                        indent + indent + dft.format(cloudlet.getExecStartTime()) +
-                        indent + indent + indent + dft.format(cloudlet.getFinishTime()) +
-                        indent + indent + dft.format(cloudlet.getWaitingTime()) +
-                        indent + indent + dft.format((cost2)) +
-                        indent + indent + dft.format(cost));
+                totalCost += cost;
+
+                Log.format("%18s%9s%10s%12s%18s%19s%20s%23s\n", dft.format(cloudlet.getResourceId()).toString(),
+                        dft.format(cloudlet.getVmId()).toString(),
+                        dft.format(cloudlet.getCloudletLength()).toString(),
+                        dft.format(cloudlet.getActualCPUTime()).toString(),
+                        dft.format(cloudlet.getExecStartTime()).toString(),
+                        dft.format(cloudlet.getFinishTime()).toString(),
+                        dft.format(cloudlet.getWaitingTime()).toString(),
+                        dft.format(cost).toString());
             }
         }
+        Log.printLine("Total cost of cloudlet running " + totalCost);
+
         Log.printLine("Total waiting time " + totalWaitingTime);
         Log.printLine("Total execution time " + totalExecutionTime);
     }
