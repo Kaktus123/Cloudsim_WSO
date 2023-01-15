@@ -1,7 +1,14 @@
 package utils;
 
 
-import org.cloudbus.cloudsim.*;
+import org.cloudbus.cloudsim.Datacenter;
+import org.cloudbus.cloudsim.Host;
+import org.cloudbus.cloudsim.Pe;
+import org.cloudbus.cloudsim.VmSchedulerTimeShared;
+import org.cloudbus.cloudsim.Storage;
+import org.cloudbus.cloudsim.DatacenterCharacteristics;
+import org.cloudbus.cloudsim.VmAllocationPolicySimple;
+
 import org.cloudbus.cloudsim.provisioners.BwProvisionerSimple;
 import org.cloudbus.cloudsim.provisioners.PeProvisionerSimple;
 import org.cloudbus.cloudsim.provisioners.RamProvisionerSimple;
@@ -22,7 +29,7 @@ public class DatacenterCreator {
         //    create a list to store these PEs before creating a Machine.
         List<Pe> peList = new ArrayList<Pe>();
 
-        int mips = 1500;
+        int mips = 15000;
 
         // 3. Create PEs and add these into the list.
         peList.add(new Pe(0, new PeProvisionerSimple(mips)));

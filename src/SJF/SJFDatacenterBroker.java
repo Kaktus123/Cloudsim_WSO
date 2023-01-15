@@ -1,13 +1,19 @@
 package SJF;
 
 
-import org.cloudbus.cloudsim.*;
+import org.cloudbus.cloudsim.Cloudlet;
+import org.cloudbus.cloudsim.DatacenterBroker;
+import org.cloudbus.cloudsim.Vm;
+import org.cloudbus.cloudsim.Log;
+
 import org.cloudbus.cloudsim.core.CloudSim;
-import org.cloudbus.cloudsim.core.CloudSimTags;
-import org.cloudbus.cloudsim.core.SimEvent;
+
 import org.cloudbus.cloudsim.lists.VmList;
 
-import java.util.*;
+import java.util.Comparator;
+import java.util.Collections;
+import java.util.Iterator;
+
 
 public class SJFDatacenterBroker extends DatacenterBroker {
 
