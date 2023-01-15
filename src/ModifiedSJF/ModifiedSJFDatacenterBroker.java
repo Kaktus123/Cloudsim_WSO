@@ -39,9 +39,9 @@ public class ModifiedSJFDatacenterBroker extends DatacenterBroker {
         while(i$.hasNext()) {
             cloudlet = (Cloudlet)i$.next();
             double cloudletLength = cloudlet.getCloudletLength();
-            if (cloudletLength < 2000) {
+            if (cloudletLength < 10000) {
                 queueShortCloudlets.add(cloudlet);
-            } else if (cloudletLength >5000) {
+            } else if (cloudletLength >50000) {
                 queueLongCloudlets.add(cloudlet);
             }
             else {

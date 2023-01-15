@@ -23,7 +23,7 @@ public class SchedulerBase {
     protected static List<Vm> createVMs(int userId) {
         //Creates a container to store VMs. This list is passed to the broker later
         LinkedList<Vm> list = new LinkedList<Vm>();
-        List<Integer> vmMips = Arrays.asList(100, 150, 200);
+        List<Integer> vmMips = Arrays.asList(1750, 1750, 1750, 1750, 1750, 1750);
 
         //VM Parameters
         long size = 10000; //image size (MB)
@@ -46,7 +46,7 @@ public class SchedulerBase {
     protected static List<Cloudlet> createCloudlets(int userId, int idShift) {
         // Creates a container to store Cloudlets
         LinkedList<Cloudlet> list = new LinkedList<Cloudlet>();
-        List<Integer> cdlMIs = Arrays.asList(2000, 2550, 3000, 2500, 4200, 1000, 8000, 6500, 7000,1500, 800);
+        List<Integer> cdlMIs = Arrays.asList(500, 2500,8000,	90000,	4000,	2600,	6500,	40000,	5000,	30000,	15000,	800,	7000,	61000,	6500);
         //cloudlet parameters
         long fileSize = 300;
         long outputSize = 300;
